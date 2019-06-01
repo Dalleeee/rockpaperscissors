@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+{
+  function computerplay() {
+    let pick = Math.floor((Math.random() * 3) + 1);
+    switch (pick) {
+      case 1: return "Rock";
+      case 2: return "Paper";
+      case 3: return "Scissors";
+    }
+  }
+  function game1 (playerselection, computerselection) {
+    if (playerselection == "Invalid") {
+      return "Invalid";
+    }
+
+    if (playerselection == computerselection) {
+      return ("Draw")
+    }
+
+    switch (playerselection) {
+      case "Rock": 
+        if (computerselection == "Scissors") {
+          return "Win!"
+        }
+        else {
+        return "Lose"
+      }
+      case "Paper":
+        if (computerselection == "Rock") {
+          return "Win!"
+        }
+        else {
+          return "Lose"
+        }
+      case "Scissors":
+        if (computerselection == "Paper") {
+          return "Win!"
+        }
+        else {
+          return "Lose"
+        }
+    }
+    }
+
+    const playerselection = prompt("Choose your weapon")
+    const computerselection = computerplay()
+    console.log(game1(playerselection, computerselection))
+}
+  </script>
+</body>
+</html>
