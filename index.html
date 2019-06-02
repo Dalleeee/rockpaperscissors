@@ -7,6 +7,7 @@
   <script>
 {
   function computerplay() {
+
     let pick = Math.floor((Math.random() * 3) + 1);
     switch (pick) {
       case 1: return "Rock";
@@ -14,13 +15,15 @@
       case 3: return "Scissors";
     }
   }
+
   function game1 (playerselection, computerselection) {
+
     if (playerselection == "Invalid") {
       return "Invalid";
     }
 
     if (playerselection == computerselection) {
-      return ("Draw")
+      return "Draw"
     }
 
     switch (playerselection) {
@@ -48,9 +51,45 @@
     }
     }
 
-    const playerselection = prompt("Choose your weapon")
-    const computerselection = computerplay()
-    console.log(game1(playerselection, computerselection))
+  function score (cpuscore,userscore) {
+
+    return "You: " + userscore + " vs CPU: " + cpuscore
+  }
+  
+  function game() {
+
+    let userscore = 0;
+    let cpuscore = 0;
+    let currentgame = 0;
+    const endgame = 5;
+
+    while (currentgame <= endgame) {
+
+      computerselection = computerplay()
+      playerselection = prompt("Choose your weapon")
+
+      switch (game1(playerselection, computerselection)){
+        
+        case "Win!": userscore++;
+          currentgame++;
+          console.log("Almost there! " + playerselection + " beats " + computerselection + " " + score(cpuscore, userscore))
+          break;
+        case "Lose": cpuscore++;
+          currentgame++;
+          console.log("It's gonna win!! " + " " + score(cpuscore, userscore))
+          break;
+        case "Draw": console.log("REDRAW!")
+          break;
+      }
+    }
+    if (cpuscore > userscore) {
+        console.log ("Better luck next time")
+      }
+      else {
+        console.log("Great win! You did great!")
+      }
+  }
+    game()
 }
   </script>
 </body>
