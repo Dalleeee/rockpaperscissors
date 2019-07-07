@@ -1,96 +1,29 @@
 <!DOCTYPE html>
+<center>
 <html>
 <head>
-  <title>Page Title</title>
+  <link rel="stylesheet" href="styles.css">
+  <title>Rock Paper Scissors</title>
+    <h1>
+      Harder than it looks
+    </h1>
+    <p>First to 3 Wins</p>
 </head>
 <body>
-  <script>
-{
-  function computerplay() {
-
-    let pick = Math.floor((Math.random() * 3) + 1);
-    switch (pick) {
-      case 1: return "Rock";
-      case 2: return "Paper";
-      case 3: return "Scissors";
-    }
-  }
-
-  function game1 (playerselection, computerselection) {
-
-    if (playerselection == "Invalid") {
-      return "Invalid";
-    }
-
-    if (playerselection == computerselection) {
-      return "Draw"
-    }
-
-    switch (playerselection) {
-      case "Rock": 
-        if (computerselection == "Scissors") {
-          return "Win!"
-        }
-        else {
-        return "Lose"
-      }
-      case "Paper":
-        if (computerselection == "Rock") {
-          return "Win!"
-        }
-        else {
-          return "Lose"
-        }
-      case "Scissors":
-        if (computerselection == "Paper") {
-          return "Win!"
-        }
-        else {
-          return "Lose"
-        }
-    }
-    }
-
-  function score (cpuscore,userscore) {
-
-    return "You: " + userscore + " vs CPU: " + cpuscore
-  }
-  
-  function game() {
-
-    let userscore = 0;
-    let cpuscore = 0;
-    let currentgame = 0;
-    const endgame = 5;
-
-    while (currentgame <= endgame) {
-
-      computerselection = computerplay()
-      playerselection = prompt("Choose your weapon")
-
-      switch (game1(playerselection, computerselection)){
-        
-        case "Win!": userscore++;
-          currentgame++;
-          console.log("Almost there! " + playerselection + " beats " + computerselection + " " + score(cpuscore, userscore))
-          break;
-        case "Lose": cpuscore++;
-          currentgame++;
-          console.log("It's gonna win!! " + " " + score(cpuscore, userscore))
-          break;
-        case "Draw": console.log("REDRAW!")
-          break;
-      }
-    }
-    if (cpuscore > userscore) {
-        console.log ("Better luck next time")
-      }
-      else {
-        console.log("Great win! You did great!")
-      }
-  }
-    game()
-}
-  </script>
+    <button id="Rock">Rock</button>
+    <button id="Paper">Paper</button>
+    <button id="Scissors">Scissors</button>
+    <div id="Player">
+      <p>Your Score</p>
+        <div id="userscore">0</div>
+    </div>
+    <div id="Computer">
+      <p>The Computer</p>
+        <div id="cpuscore">0</div>
+    </div>
+    <p id="finalscore"></p>
+    <button id="restart">Restart?</button>
+    <script type = "text/javascript" src = "script.js" ></script>
 </body>
 </html>
+</center>
