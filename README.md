@@ -5,3 +5,6 @@ First ever fully functioning game, took a lot of trial and error. Small bugs but
 Programmed with buttons and fully functioning scoreboard
 Learned document object model
 Javascript functions and loops
+
+06/13/21
+test
